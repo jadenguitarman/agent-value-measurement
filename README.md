@@ -1,22 +1,21 @@
 # Agent Value Measurement
 
-An editorial companion for the article about proving whether an AI agent creates business value. It shows why a good answer or benchmark score is only a quality signal, then connects controlled exposure to outcomes, cost, uncertainty, and segment behavior.
+An interactive companion for the article about proving whether an AI agent creates business value. The visible product is intentionally a compact measurement surface: it connects controlled exposure to outcomes, cost, latency, uncertainty, and segment behavior without repeating the article around it.
 
 This is a self-contained Next.js and TypeScript application using deterministic synthetic event fixtures. It requires no live model, production analytics account, credentials, or network request at runtime and is designed for eventual Vercel hosting.
 
-## Reader experience
+## Demo experience
 
-The page should feel like a clear measurement story embedded in a blog post:
+The root route is a viewport-sized demonstration:
 
-1. The article frames one concrete ecommerce search scenario and names the primary outcome.
-2. A prominent banner says the data is synthetic and the results are illustrative.
-3. The reader sees control and agent-variant exposure counts, outcome rates, cost, latency, and net value.
-4. A cohort control switches between simple and complex requests.
-5. A segment comparison reveals how a favorable overall result can hide a regression for a valuable or complex cohort.
-6. A methodology panel explains assignment, attribution window, cost assumptions, and bootstrap uncertainty.
-7. The closing section turns the demo into a recurring loop: measure, inspect, change one thing, and measure again.
+- Desktop is exactly `100vw` by `100dvh` with no page scroll.
+- Mobile is exactly `100vw` by `200dvh`, arranged as an intentional vertical composition.
+- The surface shows control versus agent, overall metrics, cohort/segment controls, net value, cost, latency, and seeded uncertainty.
+- A compact aggregate/segment signal makes the complex-cohort regression visible beside the overall improvement.
+- A small synthetic-data caveat remains visible without competing with the result.
+- Selected cohort and metric state is shareable in the URL.
 
-The page should prioritize interpretation over dashboard density. Charts must have adjacent summaries or tables so the point is understandable without hovering. Selected cohort and metric state should be shareable in the URL.
+The page prioritizes the result over explanatory copy. The article owns the framing, methodology, and interpretation; the demo owns the controls and visual evidence.
 
 ## Product boundaries
 

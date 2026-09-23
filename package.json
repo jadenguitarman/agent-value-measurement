@@ -15,6 +15,7 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
+    "@fielddaylabs/signaldock-sdk": "1.0.2",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

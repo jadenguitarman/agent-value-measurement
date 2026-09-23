@@ -24,19 +24,17 @@ The demo must answer: “Did the agent create more value than it consumed, for w
 
 ## 4. User experience
 
-The root route `/` is an article-shaped measurement guide with:
+The root route `/` is a compact measurement surface, not an article-shaped page. It must:
 
-- A statement of the business job and primary outcome.
-- A persistent `Synthetic data` banner with a short explanation.
-- Overview metrics for control and agent variant: exposure, primary outcome rate, incremental gross value, cost per interaction, net value per session, latency, handoff/error rate, and uncertainty interval where applicable.
+- Occupy exactly `100vw` × `100dvh` on desktop with no document scroll.
+- Occupy exactly `100vw` × `200dvh` on mobile with an intentional vertical composition.
+- Keep a compact, non-dominant synthetic-data caveat visible.
+- Show control versus agent variant and overall metrics: exposure, primary outcome rate, gross value, full interaction cost, net value per session, latency, recovery, and uncertainty where applicable.
 - A cohort selector for simple versus complex requests.
-- A comparison view showing overall results beside cohort results.
-- A visually prominent warning when the aggregate result hides a segment regression.
-- A methodology disclosure covering assignment, attribution window, cost inputs, and bootstrap settings.
-- A small event or funnel table that lets a reader trace how a metric was produced.
-- A closing operating loop: measure, inspect, change one system component, and measure again.
+- An aggregate/segment signal showing the overall lift beside simple- and complex-cohort lift.
+- A comparison chart and compact table that agree for the selected view.
 
-Selected cohort and view state should be serializable in the URL. Charts must have accessible text summaries and a table alternative. The article and default interpretation must remain readable without client interaction.
+Avoid taglines, article intro/body copy, methodology prose, marketing sections, and other explanatory paragraphs in the visible interface. The companion article owns that context. Selected cohort and view state should be serializable in the URL. Charts must have accessible text summaries and a table alternative.
 
 ## 5. Scenario and fixture model
 
@@ -83,10 +81,10 @@ Do not infer causal validity from the synthetic dataset. The methodology must st
 
 - Next.js App Router.
 - TypeScript with strict mode.
-- Server-rendered article shell, fixture payload, and default report.
+- Server-rendered viewport shell, fixture payload, and default report.
 - Small client component for cohort/view controls and disclosures.
 - Pure analysis and seeded sampling modules with unit tests.
-- No required API route, database, analytics provider, live model, or secret.
+- No required API route, database, live model, or secret. The shared folder-level SignalDock integration is optional, records anonymous page reads only, and is not part of the synthetic measurement fixture.
 
 ## 9. Future real-data boundary
 
@@ -103,10 +101,12 @@ A future adapter may ingest an approved event export, but it must not be part of
 
 - A clean checkout installs, starts, tests, and builds using documented commands.
 - The baseline runs without environment variables or network access.
+- The desktop demo is exactly `100vw` × `100dvh` with no page scroll; mobile is exactly `100vw` × `200dvh`.
 - Overall and simple/complex cohort results are visible.
 - The report shows at least one aggregate-versus-segment contrast.
 - Primary outcome, cost, net value, latency, and guardrail calculations are covered by tests.
 - Uncertainty output is deterministic for a fixed seed and documented clearly.
 - Economic assumptions are visible and traceable.
 - Every result is labeled synthetic or illustrative; no copy claims live causality.
+- The visible interface is limited to controls, results, compact labels, and the synthetic-data caveat; article prose remains outside the demo.
 - Charts and tables agree, work at narrow widths, and are keyboard accessible.
